@@ -24,10 +24,13 @@ import { cn } from "@/lib/utils"
 
 interface SidebarProps {
   currentPath?: string
-  onLogout?: () => void
+  // onLogout?: () => void
 }
 
-export function Sidebar({ currentPath, onLogout }: SidebarProps) {
+export function Sidebar({ currentPath,
+  //  onLogout 
+
+}: SidebarProps) {
   const [activestate, setActivestate] = useState<string | null>(null)
   const [showLogoutDialog, setShowLogoutDialog] = useState(false)
   const [expandedProfiles, setExpandedProfiles] = useState(false)
