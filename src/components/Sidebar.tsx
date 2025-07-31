@@ -32,7 +32,7 @@ export function Sidebar({ currentPath,
 
 }: SidebarProps) {
   const [activestate, setActivestate] = useState<string | null>(null)
-  const [showLogoutDialog, setShowLogoutDialog] = useState(false)
+  // const [showLogoutDialog, setShowLogoutDialog] = useState(false)
   const [expandedProfiles, setExpandedProfiles] = useState(false)
   const router = useRouter()
 
@@ -137,9 +137,9 @@ export function Sidebar({ currentPath,
     }
   ]
 
-  const handleLogoutClick = () => {
-    setShowLogoutDialog(true)
-  }
+  // const handleLogoutClick = () => {
+  //   setShowLogoutDialog(true)
+  // }
 
   const toggleProfiles = () => {
     setExpandedProfiles(!expandedProfiles)
@@ -233,7 +233,7 @@ export function Sidebar({ currentPath,
           <Button
             variant="ghost"
             size="sm"
-            onClick={handleLogoutClick}
+            // onClick={handleLogoutClick}
             className="w-full justify-start text-left logout-button h-10"
           >
             <LogOut className="mr-3 h-4 w-4" />
