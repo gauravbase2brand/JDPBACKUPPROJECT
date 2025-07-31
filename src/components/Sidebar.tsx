@@ -166,7 +166,7 @@ export function Sidebar({ currentPath,
 
         <nav className="flex-1 p-4 space-y-1">
           {navigation.map((item) => {
-            const active = isActive(item.href)
+            // const active = isActive(item.href)
             const Icon = item.icon
 
             return (
