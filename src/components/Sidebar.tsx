@@ -23,8 +23,8 @@ import { cn } from "@/lib/utils"
 // import { LogoutConfirmationDialog } from "../LogoutConfirmationDialog"
 
 interface SidebarProps {
-  currentPath: string
-  onLogout ?: () => void
+  currentPath?: string
+  onLogout?: () => void
 }
 
 export function Sidebar({ currentPath, onLogout }: SidebarProps) {
