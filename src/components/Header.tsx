@@ -22,13 +22,13 @@ import { NotificationPopup } from "./ui/NotificationPopup";
 
 
 interface HeaderProps {
-  currentPath?: string;
+
   onLogout: () => void;
   onNotificationViewAll: () => void;
   onProfileClick: () => void;
 }
 const Header = ({
-  currentPath,
+
   onLogout,
   onNotificationViewAll,
   onProfileClick,
