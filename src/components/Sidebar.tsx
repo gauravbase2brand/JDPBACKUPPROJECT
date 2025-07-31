@@ -19,7 +19,7 @@ import {
   LogOut,
   Bell
 } from "lucide-react"
-import { cn } from "../lib/utils"
+import { cn } from "@/lib/utils"
 // import { LogoutConfirmationDialog } from "../LogoutConfirmationDialog"
 
 interface SidebarProps {
@@ -28,6 +28,7 @@ interface SidebarProps {
 }
 
 export function Sidebar({ currentPath, onLogout }: SidebarProps) {
+  const [activestate, setActivestate] = useState<string | null>(null)
   const [showLogoutDialog, setShowLogoutDialog] = useState(false)
   const [expandedProfiles, setExpandedProfiles] = useState(false)
   const router = useRouter()
@@ -137,11 +138,6 @@ export function Sidebar({ currentPath, onLogout }: SidebarProps) {
     setShowLogoutDialog(true)
   }
 
-  // const handleLogoutConfirm = () => {
-  //   setShowLogoutDialog(false)
-  //   onLogout()
-  // }
-
   const toggleProfiles = () => {
     setExpandedProfiles(!expandedProfiles)
   }
@@ -153,7 +149,7 @@ export function Sidebar({ currentPath, onLogout }: SidebarProps) {
   return (
     <>
       <aside className="w-80 bg-sidebar border-r border-sidebar-border flex flex-col animate-fade-in shadow-sm min-h-screen h-full">
-        <div className="p-6 border-b border-sidebar-border bg-gradient-to-r from-sidebar to-sidebar-accent/20">
+        <div className="p-4 border-b border-sidebar-border bg-gradient-to-r from-sidebar to-sidebar-accent/20">
           <div className="flex items-center space-x-3">
             <div className="h-10 w-10 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-primary-foreground font-bold text-sm">JDP</span>
@@ -171,35 +167,24 @@ export function Sidebar({ currentPath, onLogout }: SidebarProps) {
             const Icon = item.icon
 
             return (
-              <Button
+              <button 
                 key={item.id}
-                variant={active ? "default" : "ghost"}
-                size="sm"
-                onClick={() => router.push(item.href)}
-                className={cn(
-                  "w-full justify-start text-left sidebar-item h-10",
-                  active 
-                    ? "bg-primary text-primary-foreground shadow-sm" 
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                )}
+                className={`flex p-3 w-full items-center rounded-md ${activestate === item.id ? 'bg-[#0092e6c0] text-white' : 'text-sidebar-foreground'}`}
+                onClick={() => { router.push(item.href); setActivestate(item.id) }}
                 title={item.description}
               >
-                <Icon className="mr-3 h-4 w-4" />
+                <Icon className="mr-3 h-5 w-5" />
                 <span className="font-medium">{item.name}</span>
-              </Button>
+              </button>
             )
           })}
 
           {/* Profiles Section */}
           <div className="pt-2">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
+            
               onClick={toggleProfiles}
-              className={cn(
-                "w-full justify-start text-left sidebar-item h-10",
-                "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              )}
+              className='flex p-3 w-full items-center rounded-md text-sidebar-foreground'
             >
               <Settings className="mr-3 h-4 w-4" />
               <span className="font-medium">Profiles</span>
@@ -210,7 +195,7 @@ export function Sidebar({ currentPath, onLogout }: SidebarProps) {
                   <ChevronRight className="h-4 w-4" />
                 )}
               </div>
-            </Button>
+            </button>
 
             {expandedProfiles && (
               <div className="ml-6 mt-1 space-y-1 animate-slide-up">

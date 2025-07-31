@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/Sidebar' // Import the Sidebar component
 import '../globals.css'
 import React from 'react'
 import Header from '@/components/Header'
-
+import { useRouter, usePathname } from 'next/navigation'
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
@@ -29,34 +29,52 @@ const inter = Inter({
 // }
 
 export default function RootLayout({
+
   children,
 }: {
   children: React.ReactNode
 }) {
   // Add a state to track the current page
   const [currentPage, setCurrentPage] = React.useState<string>('dashboard');
-
+  const router = useRouter()
+  const pathname = usePathname()
   // Define a function to handle page change
-  const onLogout = (page: string) => {
-    setCurrentPage(page);
-  };
+  const handleLogout = () => {
+   
+    router.push('/')
+  }
 
+  const handleNotificationViewAll = () => {
+    router.push('/notifications')
+  }
+
+  const handleProfileClick = () => {
+    router.push('/profile')
+  }
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <div className="flex">
+        <div className="flex h-screen bg-background transition-colors duration-300ex">
           {/* Sidebar Component */}
           <Sidebar currentPath={currentPage}  />
           <div className='flex-1 flex flex-col'>
-          <Header />
+             <Header
+          currentPath={pathname}
+          onLogout={handleLogout}
+          onNotificationViewAll={handleNotificationViewAll}
+          onProfileClick={handleProfileClick}
+        />
 
 
 
   {/* Main content area */}
-          <div className="flex-1 p-6">
+  <div className='flex-1 overflow-auto'>
+<div className="flex-1 p-6">
             {/* Render the children (i.e., the content of the page) */}
             {children}
           </div>
+  </div>
+          
           </div>
         
         </div>

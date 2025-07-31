@@ -18,7 +18,7 @@
   --accent-foreground: #0082cc;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 161, 255, 0.15);
+  --border: #c4c4c4;
   --input: #f3f4f6;
   --input-background: #f9fafb;
   --switch-background: #e5e7eb;
@@ -37,7 +37,7 @@
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #e6f6ff;
   --sidebar-accent-foreground: #0082cc;
-  --sidebar-border: rgba(0, 161, 255, 0.1);
+  --sidebar-border: #f800001a;
   --sidebar-ring: #00A1FF;
   --success: #10b981;
   --success-foreground: #ffffff;
