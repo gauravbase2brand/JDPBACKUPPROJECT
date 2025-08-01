@@ -1,8 +1,11 @@
+import { ContractorListingPage } from '@/components/ContractorListingPage'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <ContractorListingPage />
+    </div>
   )
 }
 

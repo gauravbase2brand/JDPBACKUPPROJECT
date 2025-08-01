@@ -109,7 +109,7 @@ const Header = ({
   return (
     <>
       <TooltipProvider>
-        <div className="bg-card border-b border-gray-400 px-6 py-4 animate-fade-in shadow-sm flex items-center  justify-between">
+        <div className="bg-card border-b border-gray-300 px-6 py-4 animate-fade-in shadow-sm flex items-center  justify-between">
           <h1 className="text-2xl font-medium text-foreground">Dashboard</h1>
 
           <div className="flex items-center space-x-3">

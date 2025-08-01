@@ -42,6 +42,7 @@ export default function RootLayout({
   const handleLogout = () => {
    
     router.push('/')
+    
   }
 
   const handleNotificationViewAll = () => {
@@ -59,7 +60,7 @@ export default function RootLayout({
           <Sidebar currentPath={currentPage}  />
           <div className='flex-1 flex flex-col'>
              <Header
-          currentPath={pathname}
+          // currentPath={pathname}
           onLogout={handleLogout}
           onNotificationViewAll={handleNotificationViewAll}
           onProfileClick={handleProfileClick}

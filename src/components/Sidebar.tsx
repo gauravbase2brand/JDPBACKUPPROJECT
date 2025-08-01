@@ -151,8 +151,8 @@ export function Sidebar({ currentPath,
 
   return (
     <>
-      <aside className="w-80 bg-sidebar border-r border-sidebar-border flex flex-col animate-fade-in shadow-sm min-h-screen h-full">
-        <div className="p-4 border-b border-sidebar-border bg-gradient-to-r from-sidebar to-sidebar-accent/20">
+      <aside className="w-80 bg-sidebar border-r border-gray-300 flex flex-col animate-fade-in shadow-sm min-h-screen h-full">
+        <div className="p-4 border-b border-gray-300  bg-gradient-to-r from-sidebar to-sidebar-accent/20">
           <div className="flex items-center space-x-3">
             <div className="h-10 w-10 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-primary-foreground font-bold text-sm">JDP</span>
@@ -229,7 +229,7 @@ export function Sidebar({ currentPath,
           </div>
         </nav>
 
-        <div className="p-4 border-t border-sidebar-border bg-sidebar-accent/10">
+        <div className="p-4 border-t border-gray-300  bg-sidebar-accent/10">
           <Button
             variant="ghost"
             size="sm"
