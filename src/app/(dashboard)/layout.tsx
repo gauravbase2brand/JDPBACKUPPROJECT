@@ -57,7 +57,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <div className="flex h-screen bg-background transition-colors duration-300ex">
           {/* Sidebar Component */}
-          <Sidebar currentPath={currentPage}  />
+          <Sidebar currentPath={currentPage}  onLogout={handleLogout} />
           <div className='flex-1 flex flex-col'>
              <Header
           // currentPath={pathname}
