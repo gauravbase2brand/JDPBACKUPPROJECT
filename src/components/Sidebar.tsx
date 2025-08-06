@@ -20,19 +20,16 @@ import {
   Bell
 } from "lucide-react"
 import { cn } from "@/lib/utils"
-// import { LogoutConfirmationDialog } from "../LogoutConfirmationDialog"
+import { LogoutConfirmationDialog } from "./LogoutConfirmationDialog"
 
 interface SidebarProps {
   currentPath?: string
-  // onLogout?: () => void
+  onLogout: () => void
 }
 
-export function Sidebar({ currentPath,
-  //  onLogout 
-
-}: SidebarProps) {
+export function Sidebar({ currentPath, onLogout }: SidebarProps) {
   const [activestate, setActivestate] = useState<string | null>(null)
-  // const [showLogoutDialog, setShowLogoutDialog] = useState(false)
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false)
   const [expandedProfiles, setExpandedProfiles] = useState(false)
   const router = useRouter()
 
@@ -58,13 +55,13 @@ export function Sidebar({ currentPath,
       href: "/products",
       description: "Manage product listings and details"
     },
-    {
-      id: "orders",
-      name: "Orders",
-      icon: ShoppingCart,
-      href: "/orders",
-      description: "Track and manage customer orders"
-    },
+    // {
+    //   id: "orders",
+    //   name: "Orders",
+    //   icon: ShoppingCart,
+    //   href: "/orders",
+    //   description: "Track and manage customer orders"
+    // },
     {
       id: "invoices",
       name: "Invoices",
@@ -137,12 +134,16 @@ export function Sidebar({ currentPath,
     }
   ]
 
-  // const handleLogoutClick = () => {
-  //   setShowLogoutDialog(true)
-  // }
+  const handleLogoutClick = () => {
+    setShowLogoutDialog(true)
+  }
 
   const toggleProfiles = () => {
     setExpandedProfiles(!expandedProfiles)
+  }
+   const handleLogoutConfirm = () => {
+    setShowLogoutDialog(false)
+    onLogout()
   }
 
   const isActive = (href: string) => {
@@ -233,7 +234,7 @@ export function Sidebar({ currentPath,
           <Button
             variant="ghost"
             size="sm"
-            // onClick={handleLogoutClick}
+            onClick={handleLogoutClick}
             className="w-full justify-start text-left logout-button h-10"
           >
             <LogOut className="mr-3 h-4 w-4" />
@@ -242,11 +243,11 @@ export function Sidebar({ currentPath,
         </div>
       </aside>
 
-      {/* <LogoutConfirmationDialog
+      <LogoutConfirmationDialog
         isOpen={showLogoutDialog}
         onClose={() => setShowLogoutDialog(false)}
         onConfirm={handleLogoutConfirm}
-      /> */}
+      />
     </>
   )
 }

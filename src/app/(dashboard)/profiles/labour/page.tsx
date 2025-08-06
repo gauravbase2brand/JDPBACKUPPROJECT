@@ -1,10 +1,10 @@
-import { NotificationsPage } from '@/components/NotificationsPage'
+import { LabourProfilePage } from '@/components/profiles/LabourProfilePage'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <NotificationsPage />
+      <LabourProfilePage />
     </div>
   )
 }

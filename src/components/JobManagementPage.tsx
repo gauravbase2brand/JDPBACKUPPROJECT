@@ -168,6 +168,7 @@ export function JobManagementPage() {
 
   const handleCreateJob = () => {
     setCurrentView('create')
+
   }
 
   const handleEditJob = (job: Job) => {
@@ -297,15 +298,15 @@ export function JobManagementPage() {
 
   if (currentView === 'create') {
     return (
-      // <JobCreationPage 
-      //   onBack={handleBackToList}
-      //   onJobCreated={(newJob) => {
-      //     setJobs([...jobs, newJob])
-      //     setCurrentView('list')
-      //     toast.success('Job created successfully')
-      //   }}
-      // />
-      <></>
+      <JobCreationPage 
+        onBack={handleBackToList}
+        onJobCreated={(newJob:any) => {
+          setJobs([...jobs, newJob])
+          setCurrentView('list')
+          toast.success('Job created successfully')
+        }}
+      />
+   
     )
   }
 
